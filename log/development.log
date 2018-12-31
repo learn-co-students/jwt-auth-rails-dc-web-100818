@@ -1,0 +1,152 @@
+  [1m[35m (1279.1ms)[0m  [1m[35mCREATE DATABASE "backend_project_name_development" ENCODING = 'unicode'[0m
+  ↳ /Users/anaveljkovic/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (792.0ms)[0m  [1m[35mCREATE DATABASE "backend_project_name_test" ENCODING = 'unicode'[0m
+  ↳ /Users/anaveljkovic/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (116.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (17.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8789911634374327695)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20181231182135)
+  [1m[35m (18.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "password_digest" character varying, "bio" character varying, "avatar" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20181231182135_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181231182135"]]
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-12-31 18:24:00.552696"], ["updated_at", "2018-12-31 18:24:00.552696"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8789911634374327695)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/api/v1/users" for 127.0.0.1 at 2018-12-31 13:38:09 -0500
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/anaveljkovic/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/users"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started POST "/api/v1/users" for 127.0.0.1 at 2018-12-31 13:43:28 -0500
+Processing by Api::V1::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"guy", "password"=>"[FILTERED]", "bio"=>"King of Flavortown, USA", "avatar"=>"https://upload.wikimedia.org/wikipedia/commons/9/9a/Guy_Fieri_at_Guantanamo_2.jpg"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:4
+  [1m[36mUser Exists (9.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "guy"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:4
+  [1m[36mUser Create (5.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "bio", "avatar", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "guy"], ["password_digest", "$2a$10$Mq66dmy/EI4vgagLwl1DJegnMKI5IO4ZYUboWJcGhj9mivw7egJRe"], ["bio", "King of Flavortown, USA"], ["avatar", "https://upload.wikimedia.org/wikipedia/commons/9/9a/Guy_Fieri_at_Guantanamo_2.jpg"], ["created_at", "2018-12-31 18:43:28.611193"], ["updated_at", "2018-12-31 18:43:28.611193"]]
+  ↳ app/controllers/api/v1/users_controller.rb:4
+  [1m[35m (7.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/users_controller.rb:4
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "guy"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:5
+Completed 500 Internal Server Error in 140ms (ActiveRecord: 38.8ms)
+
+
+  
+NameError (uninitialized constant ActiveModel::Serializer):
+  
+app/serializers/user_serializer.rb:1:in `<main>'
+app/controllers/api/v1/users_controller.rb:6:in `create'
+Started POST "/api/v1/users" for 127.0.0.1 at 2018-12-31 13:48:03 -0500
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/anaveljkovic/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"guy", "password"=>"[FILTERED]", "bio"=>"King of Flavortown, USA", "avatar"=>"https://upload.wikimedia.org/wikipedia/commons/9/9a/Guy_Fieri_at_Guantanamo_2.jpg"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:4
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "guy"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:4
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/users_controller.rb:4
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "guy"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+Completed 406 Not Acceptable in 1074ms (Views: 8.0ms | ActiveRecord: 8.7ms)
+
+
+  [1m[35m (3.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (2.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  [1m[35m (5.0ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/api/v1/users" for 127.0.0.1 at 2018-12-31 13:49:55 -0500
+Processing by Api::V1::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"guy", "password"=>"[FILTERED]", "bio"=>"King of Flavortown, USA", "avatar"=>"https://upload.wikimedia.org/wikipedia/commons/9/9a/Guy_Fieri_at_Guantanamo_2.jpg"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:4
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "guy"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:4
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "bio", "avatar", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "guy"], ["password_digest", "$2a$10$lvqIJSPJ4Oe6hC6w/GvMgumrB4LjsOLPqFL.sIBcxMbbQXg61H.5O"], ["bio", "King of Flavortown, USA"], ["avatar", "https://upload.wikimedia.org/wikipedia/commons/9/9a/Guy_Fieri_at_Guantanamo_2.jpg"], ["created_at", "2018-12-31 18:49:55.304176"], ["updated_at", "2018-12-31 18:49:55.304176"]]
+  ↳ app/controllers/api/v1/users_controller.rb:4
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/users_controller.rb:4
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "guy"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (10.01ms)
+Completed 201 Created in 123ms (Views: 10.9ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2018-12-31 15:00:05 -0500
+  
+SyntaxError (/Users/anaveljkovic/Documents/projects/mod4/jwt-auth-rails-dc-web-100818/backend_project_name/app/controllers/application_controller.rb:38: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/application_controller.rb:38: syntax error, unexpected end-of-input, expecting keyword_end
+app/controllers/api/v1/users_controller.rb:1:in `<main>'
+Started POST "/api/v1/users" for 127.0.0.1 at 2018-12-31 15:00:29 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/anaveljkovic/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  
+SyntaxError (/Users/anaveljkovic/Documents/projects/mod4/jwt-auth-rails-dc-web-100818/backend_project_name/app/controllers/application_controller.rb:38: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/application_controller.rb:38: syntax error, unexpected end-of-input, expecting keyword_end
+app/controllers/api/v1/users_controller.rb:1:in `<main>'
+Started POST "/api/v1/users" for 127.0.0.1 at 2018-12-31 15:01:20 -0500
+Processing by Api::V1::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"gordon_r", "password"=>"[FILTERED]", "bio"=>"Idiot sandwich", "avatar"=>"https://upload.wikimedia.org/wikipedia/commons/9/9a/Guy_Fieri_at_Guantanamo_2.jpg"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:5
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "gordon_r"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:5
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "bio", "avatar", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "gordon_r"], ["password_digest", "$2a$10$ZYJ7yJcqc9HEUWoDhIYwD.naaPOGpD1ymFYywgsvJUOw7PrxxtfcS"], ["bio", "Idiot sandwich"], ["avatar", "https://upload.wikimedia.org/wikipedia/commons/9/9a/Guy_Fieri_at_Guantanamo_2.jpg"], ["created_at", "2018-12-31 20:01:20.955998"], ["updated_at", "2018-12-31 20:01:20.955998"]]
+  ↳ app/controllers/api/v1/users_controller.rb:5
+  [1m[35m (6.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/users_controller.rb:5
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "gordon_r"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (6.63ms)
+Completed 201 Created in 122ms (Views: 18.7ms | ActiveRecord: 18.8ms)
+
+
